@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>急救檢傷分類練習</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Background Elements -->
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+
+        <!-- Home Screen -->
+        <section id="home-screen" class="screen active">
+            <div class="content-wrapper">
+                <h1>急救檢傷<br><span>判斷練習</span></h1>
+                <p class="subtitle">測試你的急救直覺與知識</p>
+
+                <div class="menu-buttons">
+                    <button id="btn-start-quiz" class="btn btn-primary">
+                        <span class="icon">⚡</span> 開始測驗
+                    </button>
+                    <button id="btn-view-info" class="btn btn-secondary">
+                        <span class="icon">📖</span> 危急個案複習
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Screen (Critical Cases) -->
+        <section id="info-screen" class="screen">
+            <header class="screen-header">
+                <button class="btn-back" data-target="home-screen">← 返回</button>
+                <h2>危急個案條件</h2>
+            </header>
+            <div class="scroll-content">
+                <div class="info-card critical">
+                    <h3>🔴 危急個案 (需立即處置)</h3>
+                    <ul id="critical-list">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+                <div class="info-card normal">
+                    <h3>🟢 一般個案 (非立即危及生命)</h3>
+                    <p>不符合上述危急條件之傷病患，生命徵象穩定，無立即生命危險。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="screen">
+            <div class="game-header">
+                <div class="timer-badge">
+                    <span class="icon">⏱️</span>
+                    <span id="timer">60</span>s
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="zone left-zone">
+                    <div class="zone-label">一般傷患</div>
+                    <div class="zone-indicator">← 左滑</div>
+                </div>
+
+                <div class="card-stack-container">
+                    <div id="card-container">
+                        <!-- Cards will be injected here -->
+                    </div>
+                </div>
+
+                <div class="zone right-zone">
+                    <div class="zone-label">危急個案</div>
+                    <div class="zone-indicator">右滑 →</div>
+                </div>
+            </div>
+
+            <div class="controls-hint">
+                <p>左右滑動卡片進行分類</p>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="screen">
+            <div class="content-wrapper">
+                <h2>測驗結束</h2>
+
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <span class="label">正確分類</span>
+                        <span class="value" id="result-correct">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">錯誤</span>
+                        <span class="value" id="result-wrong">0</span>
+                    </div>
+                </div>
+
+                <div class="accuracy-ring">
+                    <div class="ring-content">
+                        <span class="percent" id="result-percent">0%</span>
+                        <span class="label">完成率</span>
+                    </div>
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle" stroke="white" stroke-width="8" fill="transparent" r="52"
+                            cx="60" cy="60" />
+                    </svg>
+                </div>
+
+                <button id="btn-retry" class="btn btn-primary">再試一次</button>
+                <button class="btn-back-home" data-target="home-screen">回主頁</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
