@@ -79,7 +79,21 @@ function generateCriticalCase() {
                 { text: "頭骨凹陷性骨折", reason: "頭骨開放或凹陷性骨折" },
                 { text: "右腳無脈搏", reason: "肢體脈搏摸不到" },
                 { text: "下半身癱瘓", reason: "癱瘓" },
-                { text: "大腿嚴重壓碎傷", reason: "壓碎傷" }
+                { text: "大腿嚴重壓碎傷", reason: "壓碎傷" },
+                { text: "頸部穿刺傷 (噴血)", reason: "軀幹穿刺傷" },
+                { text: "背部深刺傷", reason: "軀幹穿刺傷" },
+                { text: "會陰部三度燒傷", reason: "會陰燒燙傷" },
+                { text: "化學藥劑潑灑全身", reason: "化學性灼燙傷" },
+                { text: "雙手前臂骨折變形", reason: "兩處以上長骨骨折" },
+                { text: "左大腿開放性骨折", reason: "兩處以上長骨骨折" },
+                { text: "頭部外傷腦漿外溢", reason: "頭骨開放性骨折" },
+                { text: "雙腳掌截肢", reason: "手腕或腳踝以上截肢" },
+                { text: "右上臂遭機器捲入壓碎", reason: "壓碎傷" },
+                { text: "左手掌撕裂傷 (肌腱外露)", reason: "嚴重撕裂傷" },
+                { text: "大面積皮膚撕脫傷", reason: "嚴重撕裂傷" },
+                { text: "腹部遭鋼筋穿刺", reason: "軀幹穿刺傷" },
+                { text: "胸部遭刀刺傷", reason: "軀幹穿刺傷" },
+                { text: "顏面骨折變形", reason: "顏面燒燙傷/骨折" } // Note: Logic slightly adjusted for simplicity
             ];
             return traumaList[Math.floor(Math.random() * traumaList.length)];
         case 'mechanism':
@@ -89,7 +103,13 @@ function generateCriticalCase() {
                 { text: "車禍受困 25 分鐘", reason: "脫困時間 > 20 分鐘" },
                 { text: "胸部被卡車輾過", reason: "身體被車輛輾過" },
                 { text: "車禍被拋出車外", reason: "從車輛中被拋出" },
-                { text: "同車乘客已死亡", reason: "同車有死亡者" }
+                { text: "同車乘客已死亡", reason: "同車有死亡者" },
+                { text: "機車騎士撞飛 10 公尺", reason: "高能量撞擊" },
+                { text: "汽車翻覆變形嚴重", reason: "高能量撞擊" },
+                { text: "行人遭砂石車撞擊", reason: "高能量撞擊" },
+                { text: "從 10 公尺高鷹架墜落", reason: "高處墜落 > 6公尺" },
+                { text: "車禍受困 40 分鐘", reason: "脫困時間 > 20 分鐘" },
+                { text: "腹部被堆高機輾過", reason: "身體被車輛輾過" }
             ];
             return mechList[Math.floor(Math.random() * mechList.length)];
         case 'special':
@@ -102,7 +122,15 @@ function generateCriticalCase() {
                 { text: "喝農藥中毒", reason: "中毒可能危及生命" },
                 { text: "孕婦急產 (胎頭外露)", reason: "急產" },
                 { text: "被百步蛇咬傷", reason: "毒蛇咬傷" },
-                { text: "溺水 (無呼吸)", reason: "溺水" }
+                { text: "溺水 (無呼吸)", reason: "溺水" },
+                { text: "血糖值 30 mg/dl", reason: "血糖值 < 60mg/dl" },
+                { text: "嘴角歪斜說話不清", reason: "疑似急性腦中風" },
+                { text: "劇烈胸痛輻射至背部", reason: "疑似缺血性胸痛" },
+                { text: "剛結束全身抽搐", reason: "剛結束抽搐" },
+                { text: "吞食大量安眠藥昏迷", reason: "中毒可能危及生命" },
+                { text: "被龜殼花咬傷", reason: "毒蛇咬傷" },
+                { text: "溺水 (心跳停止)", reason: "溺水" },
+                { text: "小兒發燒且意識不清", reason: "小兒評估危急" }
             ];
             return specialList[Math.floor(Math.random() * specialList.length)];
     }
@@ -133,7 +161,25 @@ function generateNormalCase() {
         { text: "輕微腹痛", reason: "非危急個案" },
         { text: "喉嚨痛", reason: "非危急個案" },
         { text: "長時間便秘", reason: "非危急個案" },
-        { text: "小腿瘀青", reason: "非危急個案" }
+        { text: "小腿瘀青", reason: "非危急個案" },
+        { text: "手肘擦傷", reason: "非危急個案" },
+        { text: "膝蓋破皮", reason: "非危急個案" },
+        { text: "被紙割傷", reason: "非危急個案" },
+        { text: "指甲斷裂", reason: "非危急個案" },
+        { text: "輕微流鼻血 (已止血)", reason: "非危急個案" },
+        { text: "蚊蟲叮咬紅腫", reason: "非危急個案" },
+        { text: "走路跌倒", reason: "非危急個案" },
+        { text: "頭暈 (生命徵象正常)", reason: "非危急個案" },
+        { text: "噁心想吐", reason: "非危急個案" },
+        { text: "失眠", reason: "非危急個案" },
+        { text: "牙痛", reason: "非危急個案" },
+        { text: "耳朵癢", reason: "非危急個案" },
+        { text: "眼睛乾澀", reason: "非危急個案" },
+        { text: "肩膀痠痛", reason: "非危急個案" },
+        { text: "落枕", reason: "非危急個案" },
+        { text: "腳底起水泡", reason: "非危急個案" },
+        { text: "手指被門夾到 (無骨折)", reason: "非危急個案" },
+        { text: "被貓抓傷 (輕微)", reason: "非危急個案" }
     ];
 
     const isVital = Math.random() > 0.5;
